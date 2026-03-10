@@ -1,0 +1,17 @@
+- name: Configure frontend server
+  hosts: server_role_frontend_server
+  become: true
+  gather_facts: true
+  remote_user: admin
+
+  roles:
+    - frontend
+
+- name: Configure redis server
+  hosts: server_role_redis_server
+  become: true
+  gather_facts: true
+  remote_user: rocky
+
+  roles:
+    - redis
